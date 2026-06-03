@@ -185,6 +185,14 @@ This project uses two complementary XAI (Explainable AI) approaches:
 Together, these give both local (per-athlete) and global (population-level) interpretability — a distinction that is central to XAI research.
 
 ---
+ 
+## Design Philosophy
+ 
+This project prioritizes interpretability and relative ranking over predictive accuracy. The goal is not to build the most accurate classifier, but to produce human-readable explanations of *why* a given lifter profile is or is not likely to hit a target weight — and to contextualize their lifts against a real population distribution. Train/test splitting and AUC optimization were intentionally deprioritized in favour of using the full dataset for a more representative population baseline.
+ 
+This tradeoff is especially deliberate in `Strength_Potential_Calculator.py` — for a percentile ranking tool, a larger population baseline is more statistically representative than a held-out test set. The Z-score is meaningful precisely because it is computed against the full distribution.
+ 
+---
 
 ## Repo Structure
 
